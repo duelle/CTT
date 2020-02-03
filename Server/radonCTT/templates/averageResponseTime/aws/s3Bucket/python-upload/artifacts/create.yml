@@ -1,0 +1,8 @@
+- hosts: all
+  gather_facts: no
+  tasks:    
+    - name: "execute test script"
+      script: "NaN"
+      args:
+        executable: python3
+

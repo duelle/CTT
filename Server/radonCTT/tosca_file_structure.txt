@@ -1,0 +1,153 @@
+=================================================================================================================================================|
+NODE TEMPLATE
+=================================================================================================================================================|
+
+<node_template_name>:
+
+  type: <node_type_name>
+
+  description: <node_template_description>
+
+  directives: [<directives>]
+
+  metadata:
+    <map of string>
+
+  properties:
+    <property_assignments>
+
+  attributes:
+    <attribute_assignments>
+
+  requirements:
+    - <requirement_assignments>
+
+  capabilities:
+    <capability_assignments>
+
+  interfaces:
+    <interface_definitions>
+
+  artifacts:
+    <artifact_definitions>
+
+  node_filter:
+    <node_filter_definition>
+
+  copy: <source_node_template_name>
+
+=================================================================================================================================================|
+POLICY TEMPLATE 
+=================================================================================================================================================|
+
+<policy_name>:
+
+  type: <policy_type_name>
+
+  description: <policy_description>
+
+  metadata:
+
+    <map of string>
+
+  properties:
+
+    <property_assignments>
+
+  targets: [<list_of_policy_targets>]
+
+  triggers:
+
+    <list_of_trigger_definitions>
+
+=================================================================================================================================================|
+TOPOLOGY TEMPLATE SECTION 
+=================================================================================================================================================|
+
+The overall grammar of the topology_template section is shown below.–Detailed grammar definitions of the each sub-sections are provided in subsequent subsections.
+
+topology_template:
+
+  description: <template_description>
+
+  inputs: <input_parameter_list>
+
+  outputs: <output_parameter_list>
+
+  node_templates: <node_template_list>
+
+  relationship_templates: <relationship_template_list>
+
+  groups: <group_definition_list>
+
+  policies:
+
+    - <policy_definition_list>
+
+  workflows: <workflow_list>
+
+  # Optional declaration that exports the Topology Template
+
+  # as an implementation of a Node Type.
+
+  substitution_mappings:
+
+    <substitution_mappings>
+
+=================================================================================================================================================|
+SERVICE TEMPLATE
+=================================================================================================================================================|
+
+The overall structure of a TOSCA Service Template and its top-level key collations using the TOSCA Simple Profile is shown below:
+
+tosca_definitions_version: # Required TOSCA Definitions version string
+
+# Optional metadata keyname: value pairs
+metadata:
+
+  template_name: <value>            # Optional name of this service template
+
+  template_author: <value>          # Optional author of this service template
+
+  template_version: <value>         # Optional version of this service template
+
+  #  Optional list of domain or profile specific metadata keynames
+
+# Optional description of the definitions inside the file.
+description: <template_type_description>
+
+dsl_definitions:
+  # list of YAML alias anchors (or macros)
+
+repositories:
+  # list of external repository definitions which host TOSCA artifacts
+
+imports:
+  # ordered list of import definitions 
+
+artifact_types:
+  # list of artifact type definitions
+
+data_types:
+  # list of datatype definitions
+
+capability_types:
+  # list of capability type definitions
+
+interface_types
+  # list of interface type definitions
+
+relationship_types:
+  # list of relationship type definitions
+
+node_types:
+  # list of node type definitions
+
+group_types:
+  # list of group type definitions
+
+policy_types:
+  # list of policy type definitions
+
+topology_template:
+  # topology template definition of the cloud application or service

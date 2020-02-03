@@ -1,0 +1,8 @@
+Lambda Function
+"args": ["5", "radon-toy-example-image-res", "aws_lambda_tux", ".jpg", "radonctt-bucket", "/tmp/RadonCTT/projects/1/aws_lambda_tux.jpg", "/tmp/RadonCTT/projects/1/testartifacts/1/1/"]
+
+Bucket In
+"args": ["5", "bucket_in_tux", ".jpg", "radonctt-bucket", "/tmp/RadonCTT/projects/1/bucket_in_tux.jpg", "/tmp/RadonCTT/projects/1/testartifacts/1/2/"]
+
+Bucket Out
+"args": ["5", "bucket_out_tux", ".jpg", "radonctt-bucket-resized", "/tmp/RadonCTT/projects/1/bucket_out_tux.jpg", "/tmp/RadonCTT/projects/1/testartifacts/1/3/"]

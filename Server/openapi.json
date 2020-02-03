@@ -1,0 +1,540 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Radon CTT API",
+    "description": "This is the Radon CTT API.\n",
+    "version": "1.0.0-oas3"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080/RadonCTT"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Projects",
+      "description": "Project Object"
+    },
+    {
+      "name": "Testartifacts",
+      "description": "Testartifact Object"
+    },
+    {
+      "name": "Deployments",
+      "description": "Deployment Object"
+    },
+    {
+      "name": "Executors",
+      "description": "Executors Object"
+    },
+    {
+      "name": "Results",
+      "description": "Result Object"
+    }
+  ],
+  "paths": {
+    "/project/{projectId}": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Retrieve a project",
+        "operationId": "get_project_by_id",
+        "parameters": [
+          {
+            "name": "projectId",
+            "in": "path",
+            "description": "Id of project to return",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Project"
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Id"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.projects_controller"
+      }
+    },
+    "/projects": {
+      "post": {
+        "tags": [
+          "Projects"
+        ],
+        "summary": "Creates a Project",
+        "operationId": "create_project",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/POSTProjects"
+        },
+        "responses": {
+          "200": {
+            "description": "Successfull operation"
+          },
+          "405": {
+            "description": "Invalid Input"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.projects_controller"
+      }
+    },
+    "/testartifact/{testartifactId}": {
+      "get": {
+        "tags": [
+          "Testartifacts"
+        ],
+        "summary": "Retrieve a testartifact",
+        "operationId": "get_testartifact_by_id",
+        "parameters": [
+          {
+            "name": "testartifactId",
+            "in": "path",
+            "description": "Id of testartifact to return",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Testartifact"
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Id"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.testartifacts_controller"
+      }
+    },
+    "/testartifacts": {
+      "post": {
+        "tags": [
+          "Testartifacts"
+        ],
+        "summary": "Creates a testartifact",
+        "operationId": "create_testartifact",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/POSTTestartifacts"
+        },
+        "responses": {
+          "200": {
+            "description": "Successfull operation"
+          },
+          "405": {
+            "description": "Invalid Input"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.testartifacts_controller"
+      }
+    },
+    "/deployment/{deploymentId}": {
+      "get": {
+        "tags": [
+          "Deployments"
+        ],
+        "summary": "Retrieve a deployment",
+        "operationId": "get_deployment_by_id",
+        "parameters": [
+          {
+            "name": "deploymentId",
+            "in": "path",
+            "description": "Id of deployment to return",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Deployment"
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Id"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.deployments_controller"
+      }
+    },
+    "/deployments": {
+      "post": {
+        "tags": [
+          "Deployments"
+        ],
+        "summary": "Creates a deployment",
+        "operationId": "create_deployment",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/POSTDeployments"
+        },
+        "responses": {
+          "200": {
+            "description": "Successfull operation"
+          },
+          "405": {
+            "description": "Invalid Input"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.deployments_controller"
+      }
+    },
+    "/executor/{executorId}": {
+      "get": {
+        "tags": [
+          "Executors"
+        ],
+        "summary": "Retrieve a executor",
+        "operationId": "get_executor_by_id",
+        "parameters": [
+          {
+            "name": "executorId",
+            "in": "path",
+            "description": "Id of executor to return",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Executor"
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Id"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.executors_controller"
+      }
+    },
+    "/executors": {
+      "post": {
+        "tags": [
+          "Executors"
+        ],
+        "summary": "Creates a executor",
+        "operationId": "create_executor",
+        "requestBody": {
+          "$ref": "#/components/requestBodies/POSTExecutors"
+        },
+        "responses": {
+          "200": {
+            "description": "Successfull operation"
+          },
+          "405": {
+            "description": "Invalid Input"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.executors_controller"
+      }
+    },
+    "/result/{resultId}": {
+      "get": {
+        "tags": [
+          "Results"
+        ],
+        "summary": "Retrieve a result",
+        "operationId": "get_result_by_id",
+        "parameters": [
+          {
+            "name": "resultId",
+            "in": "path",
+            "description": "Id of Result to return",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfull operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Result"
+                  },
+                  "x-content-type": "application/json"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Id"
+          }
+        },
+        "x-openapi-router-controller": "swagger_server.controllers.results_controller"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "POSTProjects": {
+        "required": [
+          "templateLocation"
+        ],
+        "type": "object",
+        "properties": {
+          "target": {
+            "type": "string"
+          },
+          "templateLocation": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string",
+            "format": "binary"
+          }
+        }
+      },
+      "POSTTestartifacts": {
+        "required": [
+          "testId"
+        ],
+        "type": "object",
+        "properties": {
+          "testId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "POSTDeployments": {
+        "required": [
+          "testId",
+          "testplanId"
+        ],
+        "type": "object",
+        "properties": {
+          "testId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "testplanId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "POSTExecutors": {
+        "required": [
+          "infrastructureId",
+          "testId",
+          "testplanId"
+        ],
+        "type": "object",
+        "properties": {
+          "testId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "testplanId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "infrastructureId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Project": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "templateLocation": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "templateLocation": "templateLocation",
+          "id": 0,
+          "status": "status",
+          "target": "target"
+        }
+      },
+      "Testartifact": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 0,
+          "status": "status"
+        }
+      },
+      "Deployment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 0,
+          "status": "status"
+        }
+      },
+      "Executor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 0,
+          "status": "status"
+        }
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": 0,
+          "status": "status"
+        }
+      }
+    },
+    "requestBodies": {
+      "POSTProjects": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/POSTProjects"
+            }
+          }
+        }
+      },
+      "POSTTestartifacts": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/POSTTestartifacts"
+            }
+          }
+        }
+      },
+      "POSTDeployments": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/POSTDeployments"
+            }
+          }
+        }
+      },
+      "POSTExecutors": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/POSTExecutors"
+            }
+          }
+        }
+      }
+    }
+  }
+}

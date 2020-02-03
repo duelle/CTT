@@ -1,0 +1,11 @@
+connexion[swagger-ui]
+botocore
+boto3
+sqlalchemy
+python_dateutil
+gitpython
+numpy
+connexion
+setuptools
+ansible
+opera==0.1.5

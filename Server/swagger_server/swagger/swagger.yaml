@@ -342,13 +342,13 @@ components:
       properties:
         repository_url:
           type: string
-          example: https://github.com/Kujoen/RadonCTT-SUT-ToyExample.git
+          example: https://github.com/UST-CTT/radon-ctt-sockshop-example.git 
         file:
           type: string
           format: binary
         servicetemplate_location:
           type: string
-          example: servicetemplate.yml
+          example: radon-ctt/servicetemplate.yml
     POSTTestartifacts:
       required:
       - projectId
